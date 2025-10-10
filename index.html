@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Reactive Policies with Observation Augmentation</title>
+
+    <meta name="description" content="Reactive Policies with Observation Augmentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+     <!--FACEBOOK-->
+     <meta property="og:image" content="./img/share_image.png">
+     <meta property="og:image:type" content="image/png">
+     <meta property="og:image:width" content="1196">
+     <meta property="og:image:height" content="705">
+     <meta property="og:type" content="website" />
+     <meta property="og:url" content="https://RePO-IL.github.io/"/>
+     <meta property="og:title" content="Reactive Policies with Observation Augmentation" />
+     <meta property="og:description"
+         content="Project page for Reactive Policies with Observation Augmentation" />
+ 
+     <!--TWITTER-->
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:title" content="Reactive Policies with Observation Augmentation" />
+     <meta name="twitter:description"
+         content="Project page for Reactive Policies with Observation Augmentation" />
+     <meta name="twitter:image" content="./img/share_image.png" />
+
+     
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+
+	
+    <style>
+        .nav-pills {
+          position: relative;
+          display: inline;
+        }
+        .imtip {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+    </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JBS73F70V"></script> -->
+<!-- <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5JBS73F70V');
+</script> -->
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <h2 class="col-md-12 text-center">
+                <b><font size="+6">Reactive Policies with Observation Augmentation</font></b></br> 
+            </h2>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-10 col-lg-8 mx-auto">
+                <h3 class="mt-4 mb-2">Abstract</h3>
+                <p class="text-justify", style="font-size: 18px;">
+                    Robotic imitation learning (IL) in dynamic environments, where object positions or external forces change unpredictably, poses a major challenge for current state-of-the-art methods. These methods often rely on multi-step, open-loop action execution for temporal consistency, but this approach hinders reactivity and adaptation under dynamic conditions. As a response, we propose RePO, a robust and responsive IL framework that predicts single-step actions based on a sequence of past image observations. To mitigate the susceptibility to covariate shift that arises from longer observation horizons, RePO injects adversarial noise into low-dimensional spatial image embeddings during training. This enhances robustness to out-of-distribution states while preserving semantic content. The framework can be used with any transformer-based action policy. We present two variants, RePO-BCT and RePO-DP, and show that using RePO consistently improves model performance on a diverse set of real and simulated robotic tasks featuring unpredictable perturbations. Our results demonstrate that the proposed method enables both temporally consistent and reactive policy learning for dynamic robotic tasks.
+                  </p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Method Figure and Description -->
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/repo_architecture.png" alt="Method Overview" style="width: 70%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto">
+      <!-- Method Description -->
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+        Our proposed approach, RePO, uses single-step action prediction coupled with a longer observation context, enabling reactive action execution while preserving temporal action consistency. To mitigate the increased risk of covariate shift that comes with extending the context, RePO applies a carefully designed noise augmentation scheme during training and inference. Crucially, noise perturbation is applied to the low-dimensional, spatial image representations produced by the (Resnet+SpatialSoftmax) vision backbone, encouraging robustness while preserving image semantics and intrinsic structure. We combine RePO with two different action policies, a Behavior Cloning Transformer (RePO-BCT), and a <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">Diffusion Policy</a> Transformer (RePO-DP).
+      </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+     RePO is evaluated on a set of challenging, dynamic robot tasks. For the simulation tasks, we compare RePO-BCT and RePO-DP with the vanilla BC transformer without noise augmentation, and with multiple variants of <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">Diffusion Policy</a> with different action horizons and observation history lengths.  
+    </p>
+    <h3 class="mt-4 mb-2">Simulation tasks</h3>
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/repo_sim_videos.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div style="margin-top: 20px;" class="col-md-10 col-lg-8 mx-auto">
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/repo_sim_comparison.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/repo_sim_results.png" alt="Method Overview" style="width: 100%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+      <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+     RePO outperforms the baselines across all simulation tasks, exhibiting smooth and reactive control. 
+    </p>
+    </div>
+  </div>
+  <div class="row mt-5">
+  <div class="col-md-10 col-lg-8 mx-auto">
+    <h3 class="mt-4 mb-2">Real-world experiment</h3>
+    <p class="text-justify" style="font-size: 18px; line-height: 1.6;">
+      In the dynamic real-world experiment, the agents must place a hanging object in a narrow cup, while compensating for unpredictable actuator drift. RePO-BCT shows improved resilience, and significantly outperforms vanilla BCT, <a href="https://consistency-policy.github.io/" target="_blank">Consistency Policy</a> and <a href="https://diffusion-policy.cs.columbia.edu" target="_blank">Diffusion Policy</a>.
+    </p>
+    <!-- Centered YouTube video -->
+    <div class="ratio ratio-16x9">
+      <iframe src="videos/repo_real_videos.mp4" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-10 col-lg-8 mx-auto text-center">
+      <!-- Method Figure -->
+      <img src="imgs/repo_real_results.png" alt="Method Overview" style="width: 100%; height: auto; border: none solid #ccc; border-radius: 8px; margin-bottom: 40px;">
+    </div>
+  </div>
+
+</body>
+</html>
